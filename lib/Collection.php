@@ -46,7 +46,7 @@ class Collection implements \ArrayAccess, \IteratorAggregate, \Countable
     /**
      * @return int
      */
-    public function count()
+    public function count(): int
     {
         return count($this->elements);
     }
@@ -76,7 +76,7 @@ class Collection implements \ArrayAccess, \IteratorAggregate, \Countable
     /**
      * @return \ArrayIterator
      */
-    public function getIterator()
+    public function getIterator(): \Traversable
     {
         return new \ArrayIterator($this->elements);
     }
@@ -154,7 +154,7 @@ class Collection implements \ArrayAccess, \IteratorAggregate, \Countable
      * @param mixed $offset
      * @return bool
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset):bool
     {
         return isset ($this->elements[$offset]);
     }
@@ -163,7 +163,7 @@ class Collection implements \ArrayAccess, \IteratorAggregate, \Countable
      * @param mixed $offset
      * @return mixed
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
         return isset ($this->elements[$offset]) ? $this->elements[$offset] : null;
     }
@@ -172,7 +172,7 @@ class Collection implements \ArrayAccess, \IteratorAggregate, \Countable
      * @param mixed $offset
      * @param mixed $value
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (!is_null($offset)) {
             $this->elements[$offset] = $value;
@@ -185,7 +185,7 @@ class Collection implements \ArrayAccess, \IteratorAggregate, \Countable
     /**
      * @param mixed $offset
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->elements[$offset]);
     }
